@@ -57,11 +57,15 @@ def single_char_xor(char, text):
 
 if __name__ == '__main__':
     score_dict = {}
-    for k in range(ord('A'),ord('z')+1):
+    lowest_score = 200
+    for k in range(ord('A'), ord('z') + 1):
         k = chr(k)
         result = single_char_xor(k, cipher)
         score = get_score(result)
-        score_dict[result] = score
-
-    for text in sorted(score_dict, key=score_dict.get, reverse=True):
-        print text, score_dict[text]
+        if score < lowest_score:
+            lowest_score = score
+            print '-----'
+            print k
+            print result
+            print score
+            print '-----'

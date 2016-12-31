@@ -13,5 +13,6 @@ base64_text = 'SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t'
 def hex2base64(hex_text):
     return base64.b64encode(binascii.unhexlify(hex_text))
 
-assert(hex2base64(hex_text) == base64_text)
-print "PASS"
+if __name__ == '__main__':
+    assert(hex2base64(hex_text) == base64_text)
+    print "PASS"
