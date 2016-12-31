@@ -10,7 +10,5 @@ def fixed_xor(text_a, text_b):
     result = "".join([chr(ord(x) ^ ord(y)) for (x, y) in zip(binary_a, binary_b)])
     return binascii.hexlify(result)
 
-if __name__ == '__main__':
-    result = fixed_xor(text_a, text_b)
-    print result
-    print result == target
+assert(fixed_xor(text_a, text_b) == target)
+print "PASS"
