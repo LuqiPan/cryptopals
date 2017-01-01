@@ -27,8 +27,24 @@ def guess_keysize(content, block_size=1, limit=4):
     hds = sorted(hds, key=itemgetter(1))
     return [pair[0] for pair in hds][:limit]
 
+def transpose(content, key_size):
+    result = [[] for _ in range(key_size)]
+    for i, c in enumerate(content):
+        result[i % key_size].append(c)
+
+    return [''.join(char_list) for char_list in result]
+
+def recover(content, transposed, key_size):
+    result = ''
+    n = len(content)
+    for i in range(n):
+        result += transposed[i % key_size][i / key_size]
+    return result
+
 if __name__ == '__main__':
     content = base64.b64decode(open('6.txt', 'r').read())
 
-    KEYSIZEs =  guess_keysize(content)
-    #KEYSIZEs =  guess_keysize(content, 2)
+    KEYSIZE = 7
+    transposed = transpose(content, KEYSIZE)
+    possible_plains = [item[1] for item in map(decrypt_single_xor, transposed)]
+    print recover(content, possible_plains, KEYSIZE)

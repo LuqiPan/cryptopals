@@ -6,7 +6,7 @@ if __name__ == '__main__':
 
     candidates = []
     for text in texts:
+        text = binascii.unhexlify(text)
         candidates.append(decrypt_single_xor(text))
 
-    #print sorted(candidates, key=itemgetter(0))[:1][0][1]
-    print sorted(candidates, key=itemgetter(0))[:1]
+    print sorted(candidates, key=itemgetter(0))[0][1]

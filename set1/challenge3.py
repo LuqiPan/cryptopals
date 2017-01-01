@@ -1,7 +1,7 @@
 import binascii
 from challenge2 import fixed_xor
 
-cipher_text = '1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736'
+cipher_text = binascii.unhexlify('1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736')
 
 def get_score(text):
     freq_dict = {
@@ -53,8 +53,8 @@ def get_score(text):
     return score
 
 def single_char_xor(char, text):
-    key = binascii.hexlify(char) * (len(text) / 2)
-    return binascii.unhexlify(fixed_xor(text, key))
+    key = char * len(text)
+    return fixed_xor(key, text)
 
 def decrypt_single_xor(cipher_text):
     lowest_score = 200
