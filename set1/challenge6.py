@@ -18,6 +18,7 @@ def hamming_distance(a, b):
 
 #print hamming_distance('this is a test', 'wokka wokka!!!')
 
+# the keysize guessing part really doesn't matter that much
 def guess_keysize(content, block_size=1, limit=4):
     hds = []
     for key_size in range(2, 41):
