@@ -3,7 +3,7 @@ import binascii
 def repeating_key_xor(key, text):
     result = ''
     for i, c in enumerate(text):
-        result += chr(ord(key[i%len(key)]) ^ ord(c))
+        result += chr(ord(key[i % len(key)]) ^ ord(c))
     return result
 
 if __name__ == '__main__':
