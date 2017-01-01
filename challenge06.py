@@ -45,7 +45,7 @@ def recover(content, transposed, key_size):
     return result
 
 if __name__ == '__main__':
-    content = base64.b64decode(open('6.txt', 'r').read())
+    content = base64.b64decode(open('06.txt', 'r').read())
 
     for KEYSIZE in range(2, 41):
         transposed = transpose(content, KEYSIZE)

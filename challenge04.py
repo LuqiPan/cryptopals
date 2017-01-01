@@ -2,7 +2,7 @@ from challenge3 import *
 from operator import itemgetter
 
 if __name__ == '__main__':
-    texts = open('4.txt', 'r').read().split('\n')
+    texts = open('04.txt', 'r').read().split('\n')
 
     candidates = []
     for text in texts:

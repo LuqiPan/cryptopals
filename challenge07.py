@@ -9,5 +9,5 @@ def decrypt_AES_ECB(cipher_text, KEY):
 
 
 if __name__ == '__main__':
-    cipher_text = base64.b64decode(open('7.txt', 'r').read())
+    cipher_text = base64.b64decode(open('07.txt', 'r').read())
     print decrypt_AES_ECB(cipher_text, KEY)

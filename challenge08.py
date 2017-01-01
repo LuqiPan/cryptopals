@@ -9,7 +9,7 @@ def is_encrypted_with_ECB(line):
 if __name__ == '__main__':
     block_size = 16
 
-    for line_number, line in enumerate(open('8.txt', 'r').readlines()):
+    for line_number, line in enumerate(open('08.txt', 'r').readlines()):
         line = line.strip()
         if is_encrypted_with_ECB(line):
             print line_number
