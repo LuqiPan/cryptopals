@@ -38,13 +38,18 @@ def recover(content, transposed, key_size):
     result = ''
     n = len(content)
     for i in range(n):
+        if transposed[i % key_size] == '':
+            return ''
         result += transposed[i % key_size][i / key_size]
     return result
 
 if __name__ == '__main__':
     content = base64.b64decode(open('6.txt', 'r').read())
 
-    KEYSIZE = 7
-    transposed = transpose(content, KEYSIZE)
-    possible_plains = [item[1] for item in map(decrypt_single_xor, transposed)]
-    print recover(content, possible_plains, KEYSIZE)
+    for KEYSIZE in range(2, 41):
+        transposed = transpose(content, KEYSIZE)
+        possible_plains = [item[1] for item in map(decrypt_single_xor, transposed)]
+        decrypted = recover(content, possible_plains, KEYSIZE)
+        if decrypted != '':
+            print KEYSIZE
+            print decrypted
