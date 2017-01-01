@@ -5,6 +5,7 @@ def is_encrypted_with_ECB(line):
     blocks = [line[i:i+block_size] for i in range(0, len(line), block_size)]
     if len(blocks) > len(set(blocks)):
         return True
+    return False
 
 if __name__ == '__main__':
     block_size = 16
