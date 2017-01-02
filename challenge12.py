@@ -36,6 +36,7 @@ def generate_dictionary(block_size, current_progress):
     return dict
 
 def byte_at_a_time_ECB_decrypt(block_size, total_length=16):
+    # dummy text at the start
     current_progress = '----------------'
     for index in range(total_length):
         block_index = index / 16
