@@ -12,7 +12,8 @@ secret_text = base64.b64decode('Um9sbGluJyBpbiBteSA1LjAKV2l0aCBteSByYWctdG9wIGRv
 
 def oracle(input):
     KEY = binascii.unhexlify('17248db34138334ee0a0ae136858e486')
-    plain_text = input + secret_text
+    random_prefix = binascii.unhexlify('ad3cfc32596f6b50dc428777fc9c9c24fb8649c8c1290186ca3e2d3143438e369b8e04d083ac28f69ba6416867f04e8d21a273fb3ff4a610e90603c1')
+    plain_text = random_prefix + input + secret_text
     return encrypt_AES_ECB(plain_text, KEY)
 
 def get_block_size():
